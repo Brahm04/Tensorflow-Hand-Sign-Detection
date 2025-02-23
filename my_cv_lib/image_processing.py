@@ -4,11 +4,11 @@ from scipy.signal import convolve2d
 from scipy.ndimage import gaussian_filter
 
 def convert_to_grayscale(image):
-    """Convert an RGB image to grayscale using OpenCV (preserves contrast)."""
+    """Convert an RGB image to grayscale using OpenCV"""
     return cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
 
 def resize_image(image, new_width, new_height):
-    """Resize an image using OpenCV's Bicubic interpolation (for best quality)."""
+    """Resize an image using OpenCV's Bicubic interpolation"""
     return cv2.resize(image, (new_width, new_height), interpolation=cv2.INTER_CUBIC)
 
 def crop_image(image, x_start, y_start, width, height):
@@ -40,7 +40,7 @@ def canny_edge_detection(image, low_threshold=50, high_threshold=150):
     return cv2.Canny(image, low_threshold, high_threshold)
 
 def flip_image(image, axis):
-    """Flip an image using OpenCV (preserves quality)."""
+    """Flip an image using OpenCV."""
     if axis not in [0, 1]:
         raise ValueError("Axis must be 0 (vertical) or 1 (horizontal).")
     return cv2.flip(image, axis)
